@@ -1,0 +1,42 @@
+{{#partial "content"}}
+    <div class="container animals-container">
+
+        <div class="animals-left">
+            <div class="animals-table">
+                <div class="card">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each location}}
+                            <tr>
+                                <th scope="row">{{id}}</th>
+                                <td>{{name}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <form method="post" action="/location">
+                <div class="row" style="margin-top: 2rem">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="name" id="name" name="name">
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Save Location</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+{{/partial}}
+{{>layout.hbs}}

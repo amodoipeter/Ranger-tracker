@@ -1,0 +1,92 @@
+{{#partial "content"}}
+<style>
+body{
+    color:white
+}
+
+</style>
+    <div class="container">
+
+        <table class="table">
+            <thead class="">
+            <tr>
+
+                <th scope="col">Name</th>
+                <th scope="col">Health</th>
+                <th scope="col">type</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each animals}}
+                <tr>
+
+                    <td>{{name}}</td>
+                    <td>{{health}}</td>
+                    <td>{{threatype}}</td>
+                    <td>{{age}}</td>
+                </tr>
+            {{/each}}
+
+            {{#each endangereds}}
+                <tr>
+
+                    <td>{{name}}</td>
+                    <td>{{health}}</td>
+                    <td>{{threattype}}</td>
+                    <td>{{age}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+
+    <div class="body">
+        <div class="sighting-form container">
+            <h2>Add Animal</h2>
+            <form action="/animals/new" method="post">
+                <div class="form-group row">
+
+                    <div class="col-sm-10">
+                        <input type="text" id="name" name="name" placeholder="Name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="endangereds" name="endangereds">
+                    <label class="form-check-label" for="endangereds">Check if Endangered</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <label for="healthInput">Health</label>
+                        <select class="form-control" name="health" id="health">
+                            <option>healthy</option>
+                            <option>ill</option>
+                            <option>okay</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <label for="ageInput">Age</label>
+                        <select class="form-control" id="age" name="age">
+                            <option>newborn</option>
+                            <option>young</option>
+                            <option>adult</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-block">Add Animal</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

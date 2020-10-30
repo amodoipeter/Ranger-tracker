@@ -1,0 +1,31 @@
+{{#partial "content"}}
+
+    <div >
+        <h1 class="heading"> Rangers </h1>
+        <div >
+            <div class="row">
+                {{#each ranger}}
+                    <div class="col-md-4" style="color: black;">
+                        <div >
+                            <div class="out-line">
+                                <h1 class="heading"> {{ rangerName}}</h1>
+                                <h2 class="heading"> Badge: {{rangerBadge}}</h2>
+                                <div class="heading">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+
+
+            </div>
+            <a class="btn btn-add-ranger  btn-success btn-block" href="/ranger/new">Add Ranger</a>
+
+        </div>
+    </div>
+
+
+{{/partial}}
+{{>layout.hbs}}

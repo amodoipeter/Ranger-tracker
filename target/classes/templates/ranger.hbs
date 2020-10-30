@@ -1,0 +1,35 @@
+{{#partial "content"}}
+<style>
+body{
+    color:white
+}
+
+</style>
+<div class="container">
+        <p>
+        This is a Wildlife tracker application that allows wildlife reservation companies
+        to keep track of animals by the help of rangers. It includes rangers registration,
+        sightings of animals and locations.
+        <p>
+
+    </div>
+
+    <div class="container">
+        <div class="ranger-details">
+            <div class="card">
+                <h1> Details</h1>
+                {{#each ranger}}
+                    <p>{{rangerName}} </p>
+                    <p>{{rangerBadge}}</p>
+                {{/each}}
+            </div>
+
+
+        </div>
+        <div>
+            <a class="btn btn-success btn-block" href="/ranger/{{id}}/new"> Add Sighting</a>
+        </div>
+
+    </div>
+{{/partial}}
+{{> layout.hbs}}

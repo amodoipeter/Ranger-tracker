@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wildlife{{/block}}</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='app.css' />
+     <style>
+        body{
+         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBeTeD98-MavQaa1fXMStWjWY2Oav82Q2Ji3T2MAl40Sl6BPW");
+          background-size: cover;
+         background-repeat: no-repeat;
+
+
+         }
+         main{
+              margin: 50px;
+              background-color:rgba(160, 172, 168, 0.3);
+              padding: 10%;
+              font-size: 1.5em;
+         }
+
+        </style>
+</head>
+<body>
+<main>
+<!--begin main template-->
+<div class="container">
+    <section>
+        <div class="nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/ranger">Rangers</a>
+            <a class="nav-link" href="/sightings">Sightings</a>
+            <a class="nav-link" href="/animals">Animals</a>
+            <a class="nav-link" href="/location">Locations</a>
+        </div>
+
+    </section>
+    <div class="">
+        {{#block "content"}}
+
+        {{/block}}
+    </div>
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    <div class="footer">
+
+    </div>
+    </main>
+    </body>
+    </html>
+{{/block}}

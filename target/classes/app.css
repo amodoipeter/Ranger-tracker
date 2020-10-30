@@ -1,0 +1,42 @@
+body{
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBeTeD98-MavQaa1fXMStWjWY2Oav82Q2Ji3T2MAl40Sl6BPW");
+ background-position: center;
+ background-size: cover;
+background-repeat: no-repeat;
+}
+.heading{
+  text-align: center;
+}
+
+.out-line{
+   background: none;
+   border-radius: 12px;
+   border: 1px solid #fff;
+   color: grey;
+   margin-bottom: 20px;
+}
+.btn{
+  text-align: center;
+}
+.nav a {
+    float: left;
+    display: block;
+    font-size: 18px;
+    color: #f2f2f2;
+    margin: 20px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .nav a:hover {
+    background: rgb(240, 203, 203);
+    color: rgb(150, 139, 139);
+    transition: 1.2s;
+
+  }
+  nav li{
+    margin: 20px;
+    background-color: #007bff;
+    border-color:#007bff;
+    border-size: 10px;
+  }

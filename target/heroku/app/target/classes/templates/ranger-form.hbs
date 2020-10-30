@@ -1,0 +1,34 @@
+{{#partial "content"}}
+
+
+    <div class="sighting-form container">
+        <div class="card">
+            <h1>Add Ranger</h1>
+            <form action="/ranger" method="post">
+                <div class="form-group row">
+                    <label for="rangerName" class="col-sm-2 col-form-label">Ranger Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="rangerName" name="rangerName" placeholder="Ranger Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="rangerBadge" class="col-sm-2 col-form-label">Badge Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="rangerBadge" name="rangerBadge" placeholder="Badge Number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary btn-block">Add Ranger</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+{{/partial}}
+
+{{>layout.hbs}}
+
