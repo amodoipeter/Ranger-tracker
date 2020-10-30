@@ -1,4 +1,4 @@
-# Wildlife Tracker
+# Wildlife tracker
 ### Author: Amodoi Peter
 ## Description
 A Wildlife tracker application for keeping track of wild animals
