@@ -1,6 +1,6 @@
 body{
- background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBeTeD98-MavQaa1fXMStWjWY2Oav82Q2Ji3T2MAl40Sl6BPW");
- background-position: center;
+ background-image: url("https://cdn.pixabay.com/photo/2017/10/20/10/58/elephant-2870777_960_720.jpg");
+ background-position: cover;
  background-size: cover;
 background-repeat: no-repeat;
 }
@@ -10,9 +10,9 @@ background-repeat: no-repeat;
 
 .out-line{
    background: none;
-   border-radius: 12px;
+   /*border-radius: 12px;*/
    border: 1px solid #fff;
-   color: grey;
+   color: skyblue;
    margin-bottom: 20px;
 }
 .btn{
@@ -38,5 +38,5 @@ background-repeat: no-repeat;
     margin: 20px;
     background-color: #007bff;
     border-color:#007bff;
-    border-size: 10px;
+    /*border-size: 10px;*/
   }
