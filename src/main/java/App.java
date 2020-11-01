@@ -74,7 +74,7 @@ public class App {
 
         }, new HandlebarsTemplateEngine());
 
-        post("/sightings/", (req, res) -> {
+        post("/sightings", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String rangerName = req.queryParams("rangerName");
             String animal = req.queryParams("animal");

@@ -1,10 +1,11 @@
 import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 public class Sightings {
-    private final String rangerName;
+    private final String ranger;
     private int id;
     private String animal;
     private final String location;
@@ -13,9 +14,9 @@ public class Sightings {
     private final Timestamp month;
 
 
-    public Sightings(String location, String rangerName, String animal, Timestamp date, Timestamp month){
+    public Sightings(String location, String ranger, String animal, Timestamp date, Timestamp month){
 
-        this.rangerName = rangerName;
+        this.ranger = ranger;
         this.date = date;
         this.month = month;
         this.animal = animal;
@@ -23,8 +24,8 @@ public class Sightings {
         this.location=location;
 
     }
-    public String getRangerName(){
-        return rangerName;
+    public String getRanger(){
+        return ranger;
     }
     public int getId(){
         return id;
@@ -39,10 +40,10 @@ public class Sightings {
 
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sightings (rangerName,location,animal) VALUES (:rangerName, :location,:animal)";
+            String sql = "INSERT INTO sightings (ranger,location,animal) VALUES (:ranger, :location,:animal)";
 
             this.id = (int) con.createQuery(sql, true)
-                    .addParameter("rangerName", this.rangerName)
+                    .addParameter("ranger", this.ranger)
                     .addParameter("location",location)
                     .addParameter("animal",animal)
                     .executeUpdate()
@@ -64,6 +65,10 @@ public class Sightings {
         String sql = "SELECT * FROM sightings";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Sightings.class);
+        }
+        catch (Sql2oException ex){
+            System.out.println(ex);
+            return null;
         }
     }
     @Override
