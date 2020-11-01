@@ -14,7 +14,7 @@ A Wildlife tracker application for keeping track of wild animals
 
 ## Live link
 
-[Click here to redirect](https://github.com/amodoipeter/Ranger_tracker.git)
+[Click here to redirect](https://ranger-tracker.herokuapp.com/)
 
 
 ## Copyright & License
