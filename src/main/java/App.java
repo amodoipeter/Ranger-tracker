@@ -1,5 +1,4 @@
-
-        import spark.ModelAndView;
+import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.HashMap;
@@ -9,13 +8,20 @@ import static spark.Spark.*;
 
 
 public class App {
-
-
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
 
+        port(getHerokuAssignedPort());
         staticFileLocation("/public");
+
         get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
+            Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "home.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -33,7 +39,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //ranger: process new ranger form
-        post("/ranger", (req, res) -> { //URL to make new task on POST route
+        post("/ranger", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String rangerName = req.queryParams("rangerName");
             String rangerBadge = req.queryParams("rangerBadge");
@@ -68,16 +74,16 @@ public class App {
 
         }, new HandlebarsTemplateEngine());
 
-        post("/sightings", (req, res) -> {
+        post("/sightings/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String rangerName = req.queryParams("rangerName");
             String animal = req.queryParams("animal");
             String location = req.queryParams("location");
 
-            Sightings sighting = new Sightings(location, rangerName, animal);
+            Sightings sighting = new Sightings(location, rangerName, animal, null, null);
             sighting.save();
 
-            res.redirect("/sightings");
+            res.redirect("/");
 
             int id = Integer.parseInt(req.queryParams("id"));
 
@@ -86,7 +92,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        ///////////////Animals
+        //Animals
         get("/animals", (req, res) -> {
             Map<Object, Object> model = new HashMap<>();
             model.put("animals", Animals.all());

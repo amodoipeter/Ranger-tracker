@@ -4,19 +4,20 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Sightings {
-    private String rangerName;
+    private final String rangerName;
     private int id;
     private String animal;
-    private String location;
+    private final String location;
 
-    private Timestamp date;
-    private Timestamp month;
+    private final Timestamp date;
+    private final Timestamp month;
 
 
-    public Sightings(String location,String rangerName,String animal){
+    public Sightings(String location, String rangerName, String animal, Timestamp date, Timestamp month){
 
         this.rangerName = rangerName;
-        this.id=id;
+        this.date = date;
+        this.month = month;
         this.animal = animal;
         this.animal=animal;
         this.location=location;
@@ -53,10 +54,9 @@ public class Sightings {
     public static Sightings find(int id) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM sightings where id=:id";
-            Sightings sighting = con.createQuery(sql)
+            return con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetchFirst(Sightings.class);
-            return sighting;
         }
     }
     //all()
